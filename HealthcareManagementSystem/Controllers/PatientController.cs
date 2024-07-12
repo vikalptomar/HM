@@ -32,7 +32,7 @@ namespace HealthcareManagementSystem.Controllers
         [HttpGet("GetPatientById")]
         public async Task<IActionResult> GetPatientById(int id)
         {
-            var patient = _patientService.GetPatientById(id);
+            var patient =  await _patientService.GetPatientById(id);
             if (patient == null)
             {
                 return NotFound();

@@ -34,10 +34,10 @@ namespace HealthcareManagementSystem.Services
             return await _ObjDBContext.Patients.ToListAsync();
         }
         public async Task<PatientModel> GetPatientById(int _id)
-        {
-            //return _ObjDBContext.Patients.Where(p => p.PatientId == _id).FirstOrDefault();
+        {   
+            return await _ObjDBContext.Patients.Where(p => p.PatientId == _id).FirstOrDefaultAsync();
             //return await _ObjDBContext.Patients.FirstOrDefaultAsync(p => p.PatientId == _id);
-            return await _ObjDBContext.Patients.FindAsync(_id);
+            //return await _ObjDBContext.Patients.FindAsync(_id);
         }
         public async Task<PatientModel> InsertPatient(PatientModel patient)
         {

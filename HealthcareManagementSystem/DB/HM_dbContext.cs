@@ -8,6 +8,7 @@ namespace HealthcareManagementSystem.DB
         public HM_dbContext(DbContextOptions<HM_dbContext> options) : base(options) { }
 
         public DbSet<PatientModel> Patients { get; set; }
+        public DbSet<UsersModel> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,16 @@ namespace HealthcareManagementSystem.DB
                 entity.Property(e => e.DateRegistered).HasColumnName("date_registered");
             }
             );
+            modelBuilder.Entity<UsersModel>(entity =>
+            {
+                entity.ToTable("users");
+                entity.HasKey(e => e.UserId).HasName("PRIMARY");
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+                entity.Property(e => e.UserName).HasColumnName("user_name");
+                entity.Property(e => e.UserEmail).HasColumnName("user_email");
+                entity.Property(e => e.UserPassword).HasColumnName("user_password");
+
+            });
         }
     }
 }
