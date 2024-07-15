@@ -1,5 +1,7 @@
 ﻿using HealthcareManagementSystem.Controllers;
 using HealthcareManagementSystem.DB;
+using HealthcareManagementSystem.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
 
 namespace HealthcareManagementSystem.Authorization
@@ -22,13 +24,13 @@ namespace HealthcareManagementSystem.Authorization
             {
                 // attach account to context on successful jwt validation
                 
-                //context.Items["Account"] = await _dbContext.Users.Where(x => x.UserId == accountId.Value).Select(x => new UsersController()
-                //{
-                //    Id = (int)x.UserIndex,
-                //    Name = x.FullName,
-                //    Password = x.UserPassword,
-                //    Status = x.UserStatus
-                //}).FirstOrDefaultAsync();
+                context.Items["Account"] = await _dbContext.Users.Where(x => x.UserId == accountId.Value).Select(x => new UsersModel()
+                {
+                    UserId = (int)x.UserId,
+                    UserName = x.UserName,
+                    UserPassword = x.UserPassword,
+                    UserEmail = x.UserEmail
+                }).FirstOrDefaultAsync();
             }
             await _next(context);
         }

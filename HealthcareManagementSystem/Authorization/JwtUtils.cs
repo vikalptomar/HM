@@ -14,6 +14,7 @@ namespace HealthcareManagementSystem.Authorization
         public int? ValidateJwtToken(string jwtToken);
         // RefreshToken GenerateRefreshToken();
     }
+
     public class JwtUtils:IJwtUtils
     {
         public IOptions<MyConfig> _config;

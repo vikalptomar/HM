@@ -35,7 +35,6 @@ namespace HealthcareManagementSystem.DB
                 entity.Property(e => e.UserName).HasColumnName("user_name");
                 entity.Property(e => e.UserEmail).HasColumnName("user_email");
                 entity.Property(e => e.UserPassword).HasColumnName("user_password");
-
             });
         }
     }

@@ -1,6 +1,7 @@
 ﻿using HealthcareManagementSystem.DB;
 using HealthcareManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 
 namespace HealthcareManagementSystem.Services
 {
@@ -18,12 +19,18 @@ namespace HealthcareManagementSystem.Services
 
         public async Task<UsersModel> Login(string useremail, string password)
         {
-            var currentUser = await _ObjDbContext.Users.Where(u => u.UserEmail == useremail && u.UserPassword == password).FirstOrDefaultAsync();
+            var currentUser = await _ObjDbContext.Users.Where(u => u.UserEmail == useremail && u.UserPassword == password ).FirstOrDefaultAsync();
             if (currentUser != null)
             {
+                //MySqlConnection conn = new MySqlConnection("");
+                //conn.Open();
+                //string query = "create";
+                //MySqlCommand dbCmd = new MySqlCommand();
+                //dbCmd.CommandText = query;
+                //dbCmd.CommandType = System.Data.CommandType.Text;
+                //dbCmd.ExecuteNonQuery();
 
                 return currentUser;
-
             }
             else
             {
