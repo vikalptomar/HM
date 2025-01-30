@@ -1,10 +1,10 @@
-# Hotel Management Backend
+# Hospital Management Backend
 
-This is a backend application for a Hotel Management System built using .NET Core.
+This is a backend application for a Hospital Management System built using .NET Core.
 
 ## Prerequisites
 - .NET Core SDK
 - SQL Server
 
 - ---
-This backend service manages hotel data, bookings, and users efficiently using .NET Core.
+This backend service manages Hospital data, Doctors data and Patient data efficiently using .NET Core.
